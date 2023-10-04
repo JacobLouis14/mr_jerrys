@@ -1,12 +1,13 @@
 import "./App.css";
-import Header from "./components/Header";
+
 import Hero from "./components/Hero";
+import Iced_tea from "./components/Iced_tea";
 
 function App() {
   return (
     <>
-      <Header />
-      {/* <Hero /> */}
+      <Hero />
+      <Iced_tea />
     </>
   );
 }
