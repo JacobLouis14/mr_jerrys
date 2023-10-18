@@ -22,11 +22,51 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="container-fluid min-vh-100 d-flex flex-column">
+    <div className="container-fluid min-vh-100 d-flex flex-column p-0">
       <Header />
-      <div className="row flex-grow-1">
-        <div className="col  position-relative d-flex  justify-content-center align-items-center">
+      <div className="row flex-grow-1 ">
+        <div className="col position-relative d-flex  justify-content-center align-items-center">
           <BottleCanvas />
+          <motion.h4
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5, ease: "easeInOut" },
+            }}
+            className="align-self-start text-white bg-transparent position-absolute d-flex"
+            style={{
+              fontFamily: "Young-serif",
+              bottom: "5%",
+              fontWeight: "800",
+              fontSize: 45,
+              fontStyle: "italic",
+            }}
+          >
+            Ready For The Crafted
+            <motion.h4
+              initial={{ x: 40, opacity: 0 }}
+              whileInView={{
+                x: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.5,
+                  ease: "linear",
+                  type: "tween",
+                },
+              }}
+              className=" ms-2"
+              style={{
+                fontFamily: "Young-serif",
+                bottom: "5%",
+                fontWeight: "800",
+                fontSize: 45,
+                fontStyle: "italic",
+              }}
+            >
+              Cocktail
+            </motion.h4>
+          </motion.h4>
 
           {/* <motion.img
             initial={{ opacity: 0, y: 10 }}

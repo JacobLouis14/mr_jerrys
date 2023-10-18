@@ -1,3 +1,4 @@
-* {
+.app-container section {
+  scroll-snap-align: start;
   background-color: black;
 }

@@ -6,7 +6,7 @@ function Loader() {
   return (
     <Html>
       <span>
-        <p>{progress.toFixed(2)}%</p>
+        <p style={{ color: "white" }}>{progress.toFixed(2)}%</p>
       </span>
     </Html>
   );

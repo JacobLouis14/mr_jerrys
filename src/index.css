@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Lobster&family=Poppins&family=Young+Serif&display=swap");
 
 * {
   margin: 0;
@@ -7,4 +7,8 @@
   font-family: "Poppins", "Italiana", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+  scroll-snap-type: y mandatory;
+}
+* ::-webkit-scrollbar {
+  display: none;
 }

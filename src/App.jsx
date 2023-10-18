@@ -6,8 +6,14 @@ import Iced_tea from "./components/Iced_tea";
 function App() {
   return (
     <>
-      <Hero />
-      <Iced_tea />
+      <div className="app-container">
+        <section>
+          <Hero />
+        </section>
+        <section>
+          <Iced_tea />
+        </section>
+      </div>
     </>
   );
 }
