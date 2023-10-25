@@ -1,13 +1,22 @@
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls, SpotLight, useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
-export default function Iced_tea() {
+import { getProject } from "@theatre/core";
+import studio from "@theatre/studio";
+import extention from "@theatre/r3f/dist/extension";
+
+studio.initialize();
+studio.extend(extention);
+const cameraSheet = getProject("Demo Project").sheet("camera sheet");
+
+export function Iced_tea() {
   return (
-    <div className="w-100 vh-100">
-      <Canvas>
-        {/* <SpotLight
+    <>
+      {/* <SpotLight
           position={[3, 2, 3]}
           distance={20}
           angle={0.5}
@@ -16,47 +25,44 @@ export default function Iced_tea() {
           intensity={10}
           castShadow
         /> */}
-        <ambientLight intensity={1} />
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 1.7}
-          enablePan={false}
-        />
-        <Suspense fallback={null}>
-          <Icedtea />
-        </Suspense>
-      </Canvas>
-      <OverlyHtml />
-    </div>
+      <ambientLight intensity={1} />
+      <Suspense fallback={null}>
+        <Icedtea />
+      </Suspense>
+    </>
   );
 }
 
 /**IcedTea */
-export function Icedtea({ rotation, isMobile }) {
+export function Icedtea({ isMobile }) {
   const { nodes, materials } = useGLTF("./src/assets/models/icedtea.glb");
 
-  const { viewport } = useThree();
+  const { viewport, camera } = useThree();
   const responsiveRatio = viewport.width / 12;
   const bottleScaleRatio = Math.max(0.3, Math.min(0.8 * responsiveRatio, 1));
   const model = useRef();
-  const [isHover, setIsHover] = useState(false);
 
-  useFrame(() => {
-    if (!isHover) model.current.rotation.y += 0.01;
+  const cameraAnimation = gsap.timeline();
+
+  ScrollTrigger.create({
+    trigger: "#icedOverly",
+    start: "top center",
+    end: "bottom center",
+    animation: cameraAnimation,
+    scrub: true,
+    toggleActions: "play restart play restart",
   });
 
   return (
     <group
       dispose={null}
-      rotation={isMobile ? [0, 0.5, 0] : rotation}
+      rotation={isMobile ? [0, 0.5, 0] : [1.55, 0, 0]}
       position={
         isMobile
           ? [viewport.width / -12 - 0.5, -1.5, 0.6]
-          : [0, viewport.height / 4 - 4, 0]
+          : [0, viewport.height / 4 - 2, -2]
       }
       scale={[bottleScaleRatio, bottleScaleRatio, bottleScaleRatio]}
-      onPointerOver={() => setIsHover(true)}
-      onPointerOut={() => setIsHover(false)}
       ref={model}
     >
       <mesh
@@ -118,10 +124,10 @@ export function Icedtea({ rotation, isMobile }) {
 useGLTF.preload("./src/assets/models/icedtea.glb");
 
 /**HTML */
-const OverlyHtml = () => {
+export const IcedTeaHtml = () => {
   return (
-    <div className="text-white position-absolute ">
-      <p>Hello</p>
+    <div className="text-white w-100 mt-5 ps-5 " id="icedOverly">
+      <h2 style={{ fontFamily: "Young-serif" }}>Long Island Iced Tea</h2>
     </div>
   );
 };

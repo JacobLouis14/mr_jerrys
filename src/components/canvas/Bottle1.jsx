@@ -7,10 +7,8 @@ import {
   OrbitControls,
 } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { motion, MotionCanvas } from "framer-motion-3d";
 
 import Loader from "../Loader";
-import { MotionConfig, animate } from "framer-motion";
 
 /**espresso */
 export function Espresso({ rotation, isMobile }) {

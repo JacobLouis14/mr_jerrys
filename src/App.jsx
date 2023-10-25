@@ -1,7 +1,6 @@
 import "./App.css";
-
+import Body from "./components/Body";
 import Hero from "./components/Hero";
-import Iced_tea from "./components/Iced_tea";
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
           <Hero />
         </section>
         <section>
-          <Iced_tea />
+          <Body />
         </section>
       </div>
     </>

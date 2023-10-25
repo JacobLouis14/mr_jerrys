@@ -44,7 +44,7 @@ export default function Hero() {
             }}
           >
             Ready For The Crafted
-            <motion.h4
+            <motion.span
               initial={{ x: 40, opacity: 0 }}
               whileInView={{
                 x: 0,
@@ -65,7 +65,7 @@ export default function Hero() {
               }}
             >
               Cocktail
-            </motion.h4>
+            </motion.span>
           </motion.h4>
 
           {/* <motion.img

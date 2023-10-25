@@ -1,4 +1,7 @@
+.app-container {
+  background-color: black;
+}
 .app-container section {
   scroll-snap-align: start;
-  background-color: black;
+  height: 100vh;
 }
