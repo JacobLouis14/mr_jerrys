@@ -7,7 +7,11 @@ export default function Body() {
   return (
     <div>
       <section>
-        <Canvas frameloop="demand" style={{ height: "100vh" }}>
+        <Canvas
+          frameloop="demand"
+          gl={{ preserveDrawingBuffer: true }}
+          style={{ height: "100vh" }}
+        >
           <ScrollControls pages={4}>
             <Scroll>
               <Iced_tea />
