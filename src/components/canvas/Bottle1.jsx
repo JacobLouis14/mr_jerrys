@@ -21,20 +21,6 @@ export function Espresso({ rotation, isMobile }) {
   const [globalCoords, setGlobalCoords] = useState({ x: 0, y: 0 });
   const [isHover, setIsHover] = useState(false);
 
-  // useEffect(() => {
-  //   //  get global mouse coordinates
-  //   const handleWindowMouseMove = (event) => {
-  //     setGlobalCoords({
-  //       x: event.screenX,
-  //       y: event.screenY,
-  //     });
-  //   };
-  //   window.addEventListener("mousemove", handleWindowMouseMove);
-  //   return () => {
-  //     window.removeEventListener("mousemove", handleWindowMouseMove);
-  //   };
-  // }, []);
-
   return (
     <group>
       <group
@@ -222,9 +208,9 @@ export function Maitai({ rotation, isMobile }) {
       scale={
         isHover
           ? [
-              bottleScaleRatio + 0.03,
-              bottleScaleRatio + 0.03,
-              bottleScaleRatio + 0.03,
+              bottleScaleRatio + 0.02,
+              bottleScaleRatio + 0.02,
+              bottleScaleRatio + 0.02,
             ]
           : [bottleScaleRatio, bottleScaleRatio, bottleScaleRatio]
       }
